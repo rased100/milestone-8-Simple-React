@@ -1,0 +1,305 @@
+					MODULE = 47.5 - Practice-and-React-Side-things
+
+
+
+-------
+
+React কোর কনসেপ্ট:
+
+সেই জিনিসগুলো এর একটা লিস্ট আমি দিয়ে দিয়েছি। 
+
+১. কিভাবে create react app দিয়ে নতুন React app তৈরি করবে 
+
+২. কিভাবে কম্পোনেন্ট তৈরি করবে, এবং কম্পোনেন্ট ইউজ করবে
+
+৩. props ইউজ করে কিভাবে কম্পোনেন্ট এ ডাটা সেন্ড করবে 
+
+৪. destructuring ইউজ করে object এর প্রপার্টি ইউজ করবে 
+
+৫. কিভাবে useState ইউজ করে স্টেট ডিক্লেয়ার করতে হয় 
+
+৬. eventHandler দিয়ে কিভাবে স্টেট চেইঞ্জ করতে হয় 
+
+৭. useEffect ইউজ করে কিভাবে API থেকে ডাটা লোড করতে হয় 
+
+৮. লোড করা ডাটা কিভাবে দেখানো যায়  
+
+
+
+এই জিনিসগুলোই আরেকটু ভালো করে দেখার দিন আজকে। 
+
+-------
+
+
+
+
+
+
+
+
+			module : 47_5-1 ES6 Modules, import, export, default, relative path
+
+
+
+
+	six core concepts: 
+
+		1. JSX
+
+		2. Component
+
+		3. Props
+
+		4. Event
+
+		5. State
+
+		6. useEffects
+
+
+---
+
+
+	rsc:
+
+
+
+8:00s	export:
+
+		function add(num1, num2) {
+    		return num1 + num2;
+		}
+
+		function multiply(num1, num2) {
+    		return num1 * num2;
+		}
+
+		export { add, multiply }			###
+
+
+
+	or
+
+
+		export function add(num1, num2) {		[ evabe export hoy but kore na ]
+    		return num1 + num2;
+		}
+
+		export function multiply(num1, num2) { 		[ evabe export hoy but kore na ]
+    		return num1 * num2;
+		}
+		
+
+
+
+
+
+	import:
+
+import React from 'react';
+import { add, multiply } from '../../utilitis/storage';		###
+
+const Cosmetics = () => {
+    const first = 55;
+    const second = 89;
+    const sum = add(first, second);
+    const multi = multiply(first, second);
+    return (
+        <div>
+
+        </div>
+    );
+};
+
+export default Cosmetics;
+		
+
+
+
+
+-------
+
+13:50s		export default:
+
+			export default Cosmetics;
+
+		import default:
+
+			import Cosmetics from './components/Cosmetics/Cosmetics';
+
+
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47_5-2 Create and Load Fake data, intro to array reduce
+
+
+
+
+
+
+	online json genarator:
+
+3:50s		https://www.json-generator.com/
+
+		https://www.convertsimple.com/convert-javascript-to-json/
+
+
+
+11:20s		total from fetch:	
+
+
+
+
+		reduce:
+// reduce
+const numbs = [34, 56, 78, 92];
+let sum = 0;
+for (const num of numbs) {
+    sum = sum + num;
+}
+
+const reducer = (previous, current) => previous + current;
+const totalReduceValue = numbs.reduce(reducer, 0);
+console.log(totalReduceValue)
+
+
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47_5-3 Intro to Local storage to store data
+
+
+
+
+	###
+	onClick function  peramiter pathanor jonno  annonimus function use korte hoy.
+
+		<button onClick={() => handlePurchase(_id)}>Purchase</button>
+
+
+
+
+
+5:49s	fakedb.js:
+
+const addToDb = id => {
+    const exists = localStorage.getItem('shopping_cart');
+    console.log(exists);
+    if (!exists) {
+        localStorage.setItem(id, 1);
+    }
+    else {
+        const newCount = parseInt(exists) + 1;
+        localStorage.setItem(id, newCount);
+    }
+
+}		
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47_5-4 Add and remove data to the local storage
+
+
+
+
+
+
+
+
+
+
+
+
+8:39s	remove from database:
+
+
+
+
+	seen but kisu bujhi nai
+
+
+	see again
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47_5-5 Good UI vs bad UI, themeforest, freepik, flaticon, unsplash
+
+
+
+	https://themeforest.net/
+
+		go and search what u want to see
+
+		and get idea about design
+
+
+	for icon:
+
+		flaticon
+
+		fontwosam
+
+
+
+	for image:
+
+		freepik.com
+
+		unsplash.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

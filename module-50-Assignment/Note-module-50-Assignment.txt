@@ -1,0 +1,202 @@
+					MODULE = 50 - Assignment
+
+
+
+
+
+
+	জাস্ট আর ৫-৬ টা মাইলস্টোন দিলেই কোর্স শেষ।
+
+
+
+
+	এসাইনমেন্ট রিপোজিটরি 
+
+	এই এসাইনমেন্ট এর জন্য তুমি নিচের লিংক এ ক্লিক করো। কোন কারণে প্রাইভেট রিপো তৈরি করতে কোন সমস্যা হলে আগের মতো তোমার গিটহাব এ পাবলিক রিপো হিসেবে এসাইনমেন্ট সাবমিট করে দিবে। 
+	এবং সাবমিট এর সময় হালকা এক দুই লাইন লিখে দিবে, যে প্রাইভেট রিপো তৈরি করতে ঝামেলা হয়েছে। 
+
+
+
+	https://classroom.github.com/a/_95-pu4E
+
+
+
+		>>>	https://github.com/ProgrammingHeroWC4/the-superhero-direction-rased100
+
+
+
+	প্রজেক্ট ম্যানেজমেন্ট সিক্রেট:
+
+	১. সব কিছু একবারে চিন্তা করতে যেও না। জাস্ট সিম্পল সিম্পল ছোট ছোট স্টেপ বাই স্টেপ একটা একটা করে ধরো। দরকার হলে কাগজে লিখে রাখো। 
+
+	২. ছোট ছোট অংশ করা হয়ে গেলে। সেটাকে গিটহাব এ কমিট করে পুশ করে রাখো। 
+
+	৩. ছোট একটি পার্ট এ পেঁচগি লেগে গেলে। কোন একটা কিছু কোন কারণে কাজ না করলে। সেটা নিয়ে ঘন্টার পর ঘন্টা পর ঘন্টা বসে থেকো না। বরং সেটা নিয়ে ৩০ মিনিট থেকে ১ ঘন্টা ট্রাই করো।
+	 তারপর দরকার হলে সেটার হিন্টস চেয়ে গরূপে পোস্ট করো বা সাপোর্ট সেশনে জয়েন করো। (যেহেতু এসাইনমেন্ট তাই পুরা কোড এর সরাসরি স্ক্রিনশট দিবে না। এসাইনমেন্ট ছাড়া অন্য সময় হলে 
+	পুরা স্ক্রিনশট দিতে পারবে)
+
+	৪. যে কাজটা হচ্ছে না সেটা সাইডে রেখে অন্য আরেকটা কাজ শুরু করে দাও। 
+
+	৫. গিটহাব বা ডেপ্লয় ঠিক মতো হচ্ছে কিনা সেটা আগামীকাল সকালের মধ্যে চেক করে ফেলো। কোন সমস্যা হলে সকাল ১১.০০ এর সাপোর্ট সেশনে এ জয়েন করো। কোনভাবেই এই দুইটা জিনিস লাস্ট 
+	মোমেন্ট এর জন্য রেখে দিবে না। 
+
+
+
+		----------------------------------------------------------------------------
+
+
+
+			module : 50-1 Simple React Assignment be a superhero director
+
+
+	
+
+	Assignment Repo link
+
+		Click here to create private repo: https://classroom.github.com/a/_95-pu4E
+
+		>>>	https://github.com/ProgrammingHeroWC4/the-superhero-direction-rased100
+
+
+
+
+	ki ki korte hobe:
+	-----------------
+
+2:40s	##	0.	cart 3-colum or more.
+
+
+3:25s	##	1.	Data create.
+			
+	##			minimum data 5 ta field thakte hobe.	5 tar moddhe 1 ta number field
+
+8:50s	##			public folder, or aney where
+
+
+9:20s	##		photo add
+
+						
+
+
+
+
+
+4:08s	#	2.	photo	
+			
+	#			proti ta cart e 1ta kore photo thakte hobe.	Circular hole valo. squre holeo problem nai.
+	
+
+
+4:30s	#	3. 	website ta kiser moto kora jabe na:
+
+				heros example hobe na.
+				ema john hobe na.
+				sports person hobe na.
+
+5:46s	#	4.	kiser moto hobe:
+
+5:46s				lekhok der somabes. (select)
+
+5:53s				social well fair er comity
+
+5:55s				onno movie star der niye
+
+6:00s				school niye somiti
+
+				onek company niye somiti
+
+	#			police or other k niye		>>>	https://kmp.police.gov.bd/staff-list
+
+
+
+6:28s	#	5.	design:
+
+				different hote hobe.
+
+6:50s	#	6.	Header
+
+	#			name:
+	#				website kiser upor seter moto kore
+
+	#				total budget / total
+
+7:26s		7.	right cart:
+
+	#			click korle kotojaon click hoise seta dekhabe
+
+	#			and  salary or any number show korte hobe + diye total dekhabe  (for or reduce)
+
+	#			ki add kora hoise setar name dekhaite hobe.
+
+
+
+8:35s	#	8.	pasa pasi:
+
+				folder structure
+
+
+15:30s	#	9.	key  use korte hobe.
+
+
+
+				
+
+				
+
+				
+optional:	#
+--------
+			responsive
+
+			css any kind		1 ta use
+
+			animation
+
+
+
+12:55s	Bonus:
+--------------
+
+	#	1. destructuring use korte hobe.
+
+
+	#(#)	2. minimum 1ta icon use korte hobe.
+
+	#	3. code er name  meningful hote hobe,
+			comments korte hobe
+
+16:50s #	4. readme
+
+			project name size boro
+
+
+
+
+
+
+
+
+13:57	summary:
+----------------
+
+
+		
+optional:
+			buy now   button 
+
+			background image
+		
+
+
+
+
+end-------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

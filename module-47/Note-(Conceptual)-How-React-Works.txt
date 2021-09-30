@@ -1,0 +1,413 @@
+					MODULE = (Conceptual)-How-React-Works
+
+
+
+
+
+
+
+			module : 47-1 Module Introduction Create React App under the hood
+
+
+
+
+	npx: Node Package Execute
+
+		NPX: The npx stands for Node Package Execute and it comes with the npm, when you installed npm above 5.2.0 version then 
+		automatically npx will installed. It is an npm package runner that can execute any package that you want from the npm 
+		registry without even installing that package.(google)
+
+		install kore user koray dibe
+
+
+	npm: node package maneger
+
+		install then use
+
+
+	cli: Command line interface
+
+
+	webpack, bable, setting..??
+
+	bable:
+
+
+
+
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47-2 What is JSX, React Component, babel transpiler
+
+
+	JSX:	
+
+	read the webpage:	https://reactjs.org/docs/jsx-in-depth.html
+
+
+
+
+	bable:	Babel is a JavaScript compiler.
+
+			https://babeljs.io/
+
+			ja likha hoy  >> convert hoy  >>  js   >>> html
+
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47-3 Components and how props works, unidirectional data flow
+
+
+
+	Components :
+
+		functional component		recently use
+
+		class component			age use hoto
+
+		
+
+
+	<Device />	is equal to    <Device></Device>
+
+
+	props:
+
+		read only 	er value change kora jay na
+
+		uni directional
+			up to down	[ not down to up ]
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47-4 (advanced) How states works, asynchronous, console state
+
+
+
+	useState() hosse immutable  eta sorasori change kora jay na.
+			
+		function call kore change korte hoy.
+
+
+
+---
+
+
+	 onClick:
+
+
+
+function App() {
+  const [steps, setStepes] = useState(0);
+  const handleIncreaseSteps = () => {
+    const newStepsCount = steps + 1;
+    setStepes(newStepsCount);
+  }
+  return (
+    <div className="App">
+      <h3>My steps: {steps}</h3>
+      <button onClick={handleIncreaseSteps}>Walk</button>
+      <Device name="phone" price="13500" />
+    </div>
+  );
+}
+
+
+----
+
+
+
+
+15:00s		useEffect():
+
+			
+function App() {
+  const [steps, setStepes] = useState(0);
+  const handleIncreaseSteps = () => {
+    const newSteps = steps + 1;
+    setStepes(newSteps);
+  }
+  useEffect(() => {						  	useEffect(() => {
+    console.log(steps);							console.log(steps);
+  }, [steps])								}, [steps])
+  return (
+    <div className="App">
+      <h3>My steps: {steps}</h3>
+      <button onClick={handleIncreaseSteps}>Walk</button>
+      <Device name="phone" price="13500" />
+    </div>
+  );
+}
+
+
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module :47-5 How React Hook works, send state via props, props vs state
+
+
+
+	props vs state:
+
+		props:
+
+			props read only
+
+			uni directional (top to bottom)
+
+
+
+
+		state:
+
+			change able
+
+
+
+
+
+
+	Child:
+--------------
+
+App.js:
+
+function App() {
+  const [steps, setStepes] = useState(0);
+  const handleIncreaseSteps = () => {
+    const newSteps = steps + 1;
+    setStepes(newSteps);
+  }
+  useEffect(() => {
+    console.log(steps);
+  }, [steps])
+  return (
+    <div className="App">
+      <h3>My steps: {steps}</h3>
+      <button onClick={handleIncreaseSteps}>Walk</button>
+      <Device name="phone" steps={steps} price="13500" />		#### Child:  <Device />		[ App.js er child Device.js  (<Device />) ]
+    </div>
+  );
+}
+
+
+
+
+
+const Device = (props) => {
+    return (
+        <div style={{ border: '2px solid green', margin: '5px' }}>
+            <h2>My Device: {props.name}</h2>
+            <h4>Current steps: {props.steps}</h4>
+            <Config price={props.price} steps={props.steps} />		#### Child: Device.js er child Config.js
+        </div>
+    );
+};
+
+
+
+
+
+
+	send data to child:
+
+		Hard Coded Value.
+		Dynamic Value
+		State Value
+		Object
+		Function
+
+
+---------------
+
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47-6 What is React, when to use it, react vs angular vs vue
+
+
+
+	What is React:	A JavaScript library for building user interfaces.
+
+
+
+	go >>>	official website: https://reactjs.org/
+
+			thinking in react
+
+
+	react:	library
+
+	angular: freamwork
+
+	vue: react angular  er combination
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47-7 How react works, Render, virtual dom, diff algorithm, fiber
+
+
+
+
+	How react works:
+
+		go google see article.
+
+			How react works
+
+	
+			virtual dom.
+
+			diff.
+
+
+			react fiber.
+
+
+
+8:19s	map kye warning example:
+
+
+
+
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47-8 React component lifecycle and rerender
+
+
+
+
+1:43s	component lifecycle:
+
+		google	>>>  React component lifecycle
+
+
+
+10:00s	component lifecycle
+
+
+
+.end--------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 47-9 Module Summary, recap, Properties vs attributes
+
+
+	jsx: 
+
+	cli:
+
+	webpac:
+
+	bable:
+
+	npx:
+
+	props:
+
+	
+
+
+
+
+
+2:15s	Properties vs attributes:
+
+
+
+
+
+
+	React one way data transfer kore
+
+
+
+
+	vartual dom   browser dom  	difference	identify kore  update kore
+
+
+
+.
+
+
+
+
+
+.end---------------------------------------------------- module ----------------------------------------------------------------------
+
+
+
+
+
+
+
+

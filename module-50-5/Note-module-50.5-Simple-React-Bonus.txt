@@ -1,0 +1,233 @@
+					MODULE = 50.5-Simple-React-Bonus
+
+
+
+
+
+
+
+
+			module : 50_5-1 A very simple way to add or remove key to an object
+
+
+
+const db = {};
+
+const addToDb = item => {
+    db[item] = 1;
+console.log(db)
+
+}
+				input: addToDb('manna')
+				output: {manna : 1}
+
+----
+
+
+
+const db = {};
+
+const addToDb = item => {
+    const db = getDb();
+    if (item in db) {
+        db[item] = db[item] + 1;
+    }
+    else {
+        db[item] = 1;
+    }
+
+    console.log(db)
+}
+
+const removeFromDb = item => {
+    const db = getDb();
+    delete db[item];				####
+}
+
+const getDb = () => {
+    return db;
+}
+
+
+
+
+
+
+
+
+.end-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+			module : 50_5-2 Read, Write and update data stored in local storage
+
+
+
+
+
+	localstorage e data rakhte chaile JSON e convert kore rakhte hobe
+
+
+
+
+3:14s	add to lacal storage:
+
+
+
+const db = {};
+
+const addToDb = item => {
+    const db = getDb();
+    if (item in db) {
+        db[item] = db[item] + 1;
+    }
+    else {
+        db[item] = 1;
+    }
+
+    saveToDb(db);
+}
+
+const removeFromDb = item => {
+    const db = getDb();
+    delete db[item];
+    saveToDb(db);
+}
+
+const saveToDb = db => {
+    const dbJSON = JSON.stringify(db);
+    localStorage.setItem('shopping-cart', dbJSON)
+}
+
+const getDb = () => {
+    let savedDb = localStorage.getItem('shopping-cart');
+    savedDb = JSON.parse(savedDb);
+    return savedDb;
+}
+
+
+
+---------
+
+
+.end-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+			module : 50_5-3 Wrap event handler with arrow function while passing data
+
+
+
+	<button onClick={() => handleAddToOrder(meal)}>Add this Food</button>
+
+
+const Meal = (props) => {
+    const { strMeal, strInstructions, strMealThumb } = props.meal;
+    const { handleAddToOrder, meal } = props;
+    return (
+        <div className="meal">
+            <img src={strMealThumb} alt="" />
+            <h4>{strMeal}</h4>
+            <p>{strInstructions.slice(0, 100)}</p>
+            <button onClick={() => handleAddToOrder(meal)}>Add this Food</button>
+        </div>
+    );
+};
+
+
+
+.end-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+			module : 50_5-4 Get and set data from Local Storage with React Application
+
+
+
+2:51s	export { addToDb, removeFromDb, getDb };
+
+
+
+
+
+
+6:22s	assignment problem solution found
+
+
+
+----
+
+
+
+	return savedDb ? JSON.parse(savedDb) : {};
+
+const getDb = () => {
+    let savedDb = localStorage.getItem('shopping-cart');
+    return savedDb ? JSON.parse(savedDb) : {};			#
+}
+
+export { addToDb, removeFromDb, getDb };
+
+
+
+
+9:00s	Advanced:
+-----------------
+
+
+
+
+
+.end-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+			module : 50_5-5 Revisit array reduce and handle quantity property
+
+orderlist.js
+
+
+3:09s	reduce:
+--------
+
+    	const countReducer = (previous, meal) => previous + meal.quantity;
+    	const count = order.reduce(countReducer, 0);
+
+	or	
+
+	const count = order.reduce((previous, meal) => previous + meal.quantity, 0);
+
+
+---------
+	or
+-------
+    let count = 0;
+    for (const meal of order) {
+        count = count + meal.quantity;
+    }
+-----
+
+
+
+.end--------------------------------------------------------- module --------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+

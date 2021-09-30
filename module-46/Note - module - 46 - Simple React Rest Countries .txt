@@ -1,0 +1,426 @@
+					MODULE = 46 - Simple React Rest Countries .txt
+
+
+
+
+
+
+
+			module : 46-1 Module Introduction, load countries using useEffect
+
+
+
+7:20s
+
+
+ function App() {
+  return (
+    <div className="App">
+      <Countries></Countries>
+    </div>
+  );
+}
+
+function Countries() {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    
+    fetch('https://restcountries.eu/rest/v2/all')
+      .then(res => res.json())
+      .then(data => setCountries(data))
+  }, [])
+
+  return (
+    <div>
+      <h2>Traveling around the world!!</h2>
+      <h4>Countries Available: {countries.length}</h4>
+    </div>
+  )
+}
+
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 46-2 Display countries in a simple way, Folder Structure
+
+
+
+
+function Countries() {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+
+    fetch('https://restcountries.eu/rest/v2/all')
+      .then(res => res.json())
+      .then(data => setCountries(data))
+  }, [])
+
+  return (
+    <div>
+      <h2>Traveling around the world!!</h2>
+      <h4>Countries Available: {countries.length}</h4>
+      {
+        countries.map(country => <Country name={country.name} capital={country.capital}></Country>)
+      }
+    </div>
+  )
+}
+
+function Country(props) {
+  return (
+    <div>
+      <h2>Name: {props.name}</h2>
+      <p>Capital: {props.capital}</p>
+    </div>
+  )
+}
+
+-----
+
+
+
+
+
+
+7:30s		organize component: 
+
+
+import './App.css';
+
+
+function App() {
+  return (
+    <div className="App">
+
+    </div>
+  );
+}
+
+
+
+
+export default App;
+
+
+
+.end------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 46-3 React Extension Pack and component with css file
+
+
+
+	vs code install -  React Extension Pack
+
+
+
+		-----------------------
+
+
+3:29s
+	
+	rsc		[ enter ]
+
+			[ output ]
+
+
+import React from 'react';
+
+const Countries = () => {
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+export default Countries;
+
+
+		------------------------
+
+
+
+11:40s		import css:
+
+			import './Header.css';
+
+
+
+
+
+
+.end------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 46-4 Components inside the folder structure and connect them
+
+
+
+
+
+	seen and work
+
+
+
+
+.end------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 46-5 Create child component and pass data via props
+
+
+Countyies.js
+------------
+
+
+const Countries = () => {
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        fetch('https://restcountries.eu/rest/v2/all')
+            .then(res => res.json())
+            .then(data => setCountries(data))
+    }, [])
+
+    return (
+        <div>
+            <h1>Hello from Countries: {countries.length}</h1>
+            {
+                countries.map(country => <Country name={country.name} capital={country.capital} population={country.population}></Country>)
+            }
+        </div>
+    );
+};
+
+
+
+
+
+Country.js
+----------
+
+
+const Country = (props) => {
+    return (
+        <div>
+            <h4>This is: {props.name}</h4>
+            <p>Capital is: {props.capital} Population : {props.population}</p>
+        </div>
+    );
+};
+
+
+
+
+
+.end------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 46-6 (advanced) Pass multiple data to a child component
+
+
+
+
+
+const Countries = () => {
+    const [countries, setCountries] = useState([]);
+
+    useEffect(() => {
+        fetch('https://restcountries.eu/rest/v2/all')
+            .then(res => res.json())
+            .then(data => setCountries(data))
+    }, [])
+
+    return (
+        <div>
+            <h1>Hello from Countries: {countries.length}</h1>
+            {
+                countries.map(country => console.log(country))
+            }
+            {
+                countries.map(country => <Country
+
+                    country={country}					###
+
+                ></Country>)
+            }
+        </div>
+    );
+};
+
+
+
+
+const Country = (props) => {
+
+    console.log(props.country);
+    return (
+        <div className="country">
+            <h4>This is: {props.country.name}</h4>
+            <p>Capital is: {props.country.capital} Population : {props.country.population}</p>
+        </div>
+    );
+};
+
+
+
+----
+
+10:14s		Destructuring:
+
+
+
+const Country = (props) => {
+    const { name, flag, capital, population } = props.country;			###
+    console.log(props.country);
+    return (
+        <div className="country">
+            <h4>This is: {name}</h4>
+            <img src={flag} alt="" />
+            <p>Capital is: {capital} Population : {population}</p>
+        </div>
+    );
+};
+
+
+
+----
+
+
+
+.end------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 46-7 (advanced) add unique key for mapping components
+
+
+
+
+
+
+
+	kye={country.capital}
+
+		
+{
+                    countries.map(country => <Country
+                        kye={country.capital}				[ map er vitor kye={} use korte hobe  jeta unique ]
+                        country={country}
+                    ></Country>)
+                }
+
+
+
+
+
+.end------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 46-8 build your react app and host your react app in Netlify
+
+
+
+
+
+
+		https://create-react-app.dev/docs/deployment/#netlify
+
+
+
+
+	deploy netlify:
+
+
+
+4:50s		1. terminal	>>>	npm run build
+
+		2. go to folder  u can see a new folder name "build"
+
+		3. deploy to netlify that buile folder only.
+
+			done.
+
+	site-update:
+
+		1. edit code
+	
+		2. terminal	>>>	npm run build
+
+		3. go to folder  u can see updated folder name "build"
+
+		4. deploy to netlify that buile folder only.
+
+
+
+
+.end------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 46-9 Module Summary and recap
+
+
+	bootstrap in react:
+
+			bootstrap link copy	>>>	public folder   >>>   index.html   >>> past bootstrap link  in link section
+
+
+
+
+				<div className="country bg-info">
+
+
+
+
+
+
+
+
+
+.end---------------------------------------------------------- module --------------------------------------------------------------------------

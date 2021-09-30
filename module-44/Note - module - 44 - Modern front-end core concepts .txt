@@ -1,0 +1,300 @@
+					MODULE =  44 - Modern front-end core concepts
+
+
+
+
+মাইলস্টোন ৮ এর টেনটেটিভ আউটলাইন:
+
+সেপ্টেম্বর ১৬: মডিউল ৪৪: Modern Front-end core concepts
+
+সেপ্টেম্বর ১৭: মডিউল ৪৫: React Core Concepts
+
+সেপ্টেম্বর ১৮: রাত ৯.০০: কন্সেপচুয়াল সেশন 
+
+সেপ্টেম্বর ১৮: মডিউল ৪৫.৫: Revision
+
+
+
+.  
+
+সেপ্টেম্বর ১৯: মডিউল ৪৬: Simple React SPA examples
+
+সেপ্টেম্বর ২০: মডিউল ৪৭: How React works, Recap React Concepts
+
+সেপ্টেম্বর ২১: রাত ৯.০০: কন্সেপচুয়াল সেশন 
+
+সেপ্টেম্বর ২১: মডিউল ৪৭.৫: Revision
+
+.
+
+সেপ্টেম্বর ২২: মডিউল ৪৮: Simple e-commerce
+
+সেপ্টেম্বর ২৩: মডিউল ৪৯: Simple ecommerce Cart 
+
+সেপ্টেম্বর ২৪: রাত ৯.০০: কন্সেপচুয়াল সেশন 
+
+সেপ্টেম্বর ২৪: মডিউল ৪৯.৫: প্রাকটিস (বুটক্যাম্প)
+
+
+
+সেপ্টেম্বর ২৫: মডিউল ৫০: এসাইনমেন্ট ৮
+
+সেপ্টেম্বর ২৬: মডিউল ৫০.৫: React বোনাস কনটেন্ট
+
+সেপ্টেম্বর ২৭: মাইলস্টোন ৯ (মডিউল ৫১)
+
+
+
+
+----
+
+React Install:
+
+কিছুদিন আগে একটা ভিডিও দিছিলাম সেখানে নিচের তিনটা কমান্ড দেয়া ছিল। আশা করি এই কমান্ডগুলো দিয়ে তোমার React ইনস্টল হয়ে গেছে। 
+
+npx create-react-app my-app
+
+cd my-app
+
+npm start
+
+
+---
+
+
+
+
+
+			module : 44-1 Module overview and modern application core parts
+
+
+
+
+	Module overview
+
+thatjsdude.com
+
+
+
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-2 web component, 4 types of component, identify component
+
+
+
+
+	web component:	similer in look different in data.
+
+			youtube web page.
+
+			video list similer but data different.
+
+11:10s	component:
+
+
+
+
+
+
+
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-3 Template, dynamically create HTML elements based on data
+
+
+	
+
+0:00s - 4:54s		fetch: load countries.
+
+
+
+13:30s			.join(' '):
+
+				const arr = ['hellow', 'gelo','nilo']
+
+				arr.join(' ')
+
+				otp:	'hellow gelo nilo'
+
+
+
+
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-4 Single Page Application (SPA), Performance benefit
+
+
+
+	3:16s		single page application:  		
+
+				click korle page change ( change 80% ) hoy but reload na hoye. like gmail.com
+
+
+
+
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-5 Routing, Route parameter, Routing in React
+
+
+
+6:45s	route / routing:
+
+		page 1 ta  but last er url change korle page change hoy reload na hoye
+
+
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-6 Explore destructuring and send data to html elements using props
+
+
+
+
+3:17s		function er moddhe data pathano
+
+
+
+3:30s		destructuring
+
+
+
+9:20s		function er moddhe data pathano jay  thik temon html tag er moddhe data pathano jay jar nam property ba attribute.
+
+
+
+
+
+
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-7 Website state, state management, purpose of state
+
+
+
+	Website state:
+			
+		gmail inbox unread message 119
+
+		after click 1 message  unread message 118
+
+		click one place change another data
+
+6:00s				its state change
+
+
+
+8:17s		user kisu korle website er kono kisu jodi change hoy	=  stateful website
+
+			r jeta change hosse sei ta state
+	
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-8 Install React App and explore folder structure and edit
+
+
+
+
+
+https://reactjs.org/docs/create-a-new-react-app.html
+
+
+	npx create-react-app my-app
+	cd my-app
+	npm start
+
+
+
+
+end------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 44-9 Module Summary and concept recap
+
+
+
+	component, container component,
+
+
+	src
+
+
+
+end------------------------------------------------------  module  ------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

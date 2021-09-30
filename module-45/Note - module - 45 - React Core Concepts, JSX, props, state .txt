@@ -1,0 +1,546 @@
+					MODULE =  45 - React Core Concepts, JSX, props, state 
+
+
+
+
+
+
+
+			module : 45-1 Module Introduction, Create React App, 6 Core Concepts
+
+
+
+
+	Module Introduction, Create React App
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 45-2 Jsx, Dynamic Content, Dynamic Style In React
+
+
+
+	vs code setting:
+
+		enable emate in react:
+
+			file   >>>   preference   >>>   settings    >>>   extention   >>>   emmet   >>>   incluse languege
+
+
+
+	className:	
+
+		not class = '';			[ class in htnl ]
+
+		className = '';			[ className in react html ]
+
+
+
+
+	templet string er moto likha jay: 
+
+		not ${}
+		only {}
+			const number = 5555;
+			<p>my number is:{number}</p>
+
+
+---
+
+	templet string + css style  in react:
+
+ 	 	const singer = {
+    		 name: 'Dr. Mahfuj',
+   		 job: 'singer'
+  		}
+
+  		const singerStyle = {
+   		 backgroundColor: 'red',
+   		 color: 'white'
+  		}
+
+
+		<p style={singerStyle}>Singer: {singer.name + ' ' + singer.job}</p>
+
+	or
+		
+		<p style={{
+   		 backgroundColor: 'red',
+   		 color: 'white'
+  		}}>Singer: {singer.name + ' ' + singer.job}</p>
+		
+
+---
+
+
+
+
+
+
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 45-3 Create Component, Return Html From A Component
+
+
+---
+
+4:00s	html tag in function return:
+
+function App() {
+  return (
+    <div className="App">
+      <Person></Person>
+    </div>					otp:	 Sakib al hasan
+  );
+}
+
+function Person() {
+  return <h1>Sakib al hasan</h1>
+}
+
+
+---
+
+
+	return:
+
+	  	return <div>
+   		<h1>Name: Sakib al hasan</h1>
+    		<h4>Profession: Cricketer</h4>
+  		</div>
+
+			[ ok ]
+
+
+	  	return 				[ ai line e return empty.  ei line empty rakha jabe na ] 
+		<div>
+   		<h1>Name: Sakib al hasan</h1>
+    		<h4>Profession: Cricketer</h4>
+  		</div>
+
+			[ Not ok ]
+
+
+
+---
+
+
+
+	className='person':
+
+		<div className='person'>
+
+
+---
+
+  const person = {
+    backgroundColor: 'skyblue',
+    border: '3px solid lightsalmon',
+    margin: '20px',
+    borderRadius: '20px'
+  }
+
+	style={person}
+
+   		<div style={person}>
+      		<h1>Name: Sakib al hasan</h1>
+      		<h4>Profession: Cricketer</h4>
+    		</div>
+
+
+---
+
+
+
+	<div style={backgroundColor: 'skyblue'}>		[  object na dile  kaj korbe na ]
+			-----------------
+
+11:14s		<div style={{backgroundColor: 'skyblue'}}>	[ kaj korbe ]
+
+
+
+	3 vabe css likha jay:
+
+		class
+
+		style object
+
+		direct
+		
+
+		
+---
+
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 45-4 Pass Dynamic Data To Components, Props In React
+
+
+
+	Pass Dynamic Data Props In React:
+
+function App() {
+  return (
+    <div className="App">
+      <Friend phone='01700' address='noyakhali'></Friend>
+      <Friend phone='01800' address='Rangpur'></Friend>
+      <Friend phone='01600' address='Jessor'></Friend>
+      <Friend phone='01900' address='Dhaka'></Friend>
+    </div>
+  );
+}
+
+
+function Person(props) {
+  console.log(props);
+  const person = {
+    backgroundColor: 'skyblue',
+    border: '3px solid lightsalmon',
+    margin: '20px',
+    borderRadius: '10px'
+  }
+  return (
+    <div style={person}>
+      <h1>Name: {props.name}</h1>
+      <h4>Hero of: {props.nayika}</h4>
+    </div >
+  )
+}
+
+
+function Friend(props) {
+  console.log(props);
+  return (
+    <div className='person'>
+      <h3>Phone: {props.phone} </h3>
+      <h5>Address: {props.address} </h5>
+    </div>
+  );
+}
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 45-5 (Advanced) Create Multiple Components From An Array Of Objects
+
+
+
+	Dynamic li from array:
+
+
+function App() {
+  const nayoks = ['Rubel', 'Bapparaj', 'Koober', 'Bappi', 'Shuvo', 'Omorsani']
+  return (
+    <div className="App">
+      <ul>
+        {
+          nayoks.map(nayok => <li>{nayok}</li>)
+        }
+      </ul>
+
+
+---
+
+function App() {
+  const nayoks = ['Rubel', 'Bapparaz', 'Koober', 'Bappi', 'Shuvo', 'Omar Sani'];
+
+  const cinemas = [
+    { nayok: 'Koober', nayika: 'kopila' },
+    { nayok: 'Rubel', nayika: 'Moushumi' },
+    { nayok: 'Razzak', nayika: 'Shabana' },
+    { nayok: 'Jashim', nayika: 'Suchorita' },
+
+  ]
+  return (
+    <div className="App">
+      <ul>
+        {
+          nayoks.map(nayok => <li>{nayok}</li>)
+        }
+      </ul>
+      {/* <Cinema nayok="J Bond" nayika="Cat W"></Cinema> */}
+      {
+        cinemas.map(cinema => <Cinema nayok={cinema.nayok} nayika={cinema.nayika}></Cinema>)			[ daynamic *#*#*#*#*#* ]
+      }
+
+    </div>
+  );
+}
+
+---
+
+
+
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 45-6 Concept Recap, Jsx, Components, Props, Display Array Of Objects
+
+
+
+
+	css in react:
+
+		1. css  in app.css
+
+			function Products(props) {
+  			return (
+    			<div className="product">			[ product    in app.css ]
+      			<h2>Name: {props.name}</h2>
+      			<h4>Price: {props.price}</h4>
+    			</div>
+  			);
+			}
+
+
+
+		2. object
+
+			function Products(props) {
+  			const productStyle = {				[ css as object ]
+    				border: '2px solid blue'
+  			}
+  			return (
+    			<div className="product" style={productStyle}>	 	[ object css   style = { } ]
+      			<h2>Name: {props.name}</h2>
+      			<h4>Price: {props.price}</h4>
+   			 </div>
+  			);
+			}
+
+
+
+		3. Direct
+
+---
+
+
+
+function App() {
+  const products = [
+    { name: 'mobile', price: 15000 },
+    { name: 'camera', price: 55000 },
+    { name: 'laptop', price: 150000 },
+    { name: 'watch', price: 5000 },
+    { name: 'shoe', price: 500 },
+  ]
+  return (
+    <div className="App">
+      {
+        products.map(product => <Products name={product.name} price={product.price}></Products>)
+      }
+      {/* <Products name="mobile" price="15000"></Products>
+      <Products name="laptop" price="15000"></Products>
+      <Products name="camera" price="15000"></Products>
+      <Products name="mobile" price="15000"></Products>
+      <Products name="mobile" price="15000"></Products> */}
+    </div>
+  );
+}
+
+
+
+----
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 45-7 (Advanced) State, Component State Hook And Set State Method
+
+
+
+
+
+4:00s		useState:
+								[ js distructuring ager module ]
+
+
+
+function Counter() {
+  const [count, setCount] = useState(0);			[ 0 = initial value	count = variable    ###	setCount = function ]
+  return (
+    <div>
+      <h1>Count: 0</h1>
+      <button>Increase</button>
+    </div>
+  )
+}
+
+
+
+
+
+8:54s		onClick:
+
+			1. onClick	not   onclick		[ C  not c ]
+
+			2. onClick={function name}    not       onClick = "function()"
+
+
+	onClick:
+
+function Counter() {
+  const [count, setCount] = useState(55);
+
+  const handleIncrease = () => {			or	[---- 	const handleIncrease = () => setCount(count + 1);	 			
+    const newCount = count + 1;		
+    setCount(newCount);
+  };					--------------------------------------------------------------------------------]
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={handleIncrease}>Increase</button>
+    </div>
+  )
+}
+
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module: 45-8 (Advanced) Load Dynamic Data, Api Call Useeffect Integrate State
+
+
+
+
+
+
+
+2:30s	1.	Declear useState:
+
+			const [] = useState([])
+
+				useState()	array hole defult value   empty array      useState([])
+
+				useState()	number hole defult value   0      useState(0)
+
+
+5:42s	2.	Declear useEffect:
+
+
+---			
+
+10:00s		setUsers(data):
+
+			from fetch:
+
+
+
+
+function ExternulUsers() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+  }, [])
+  return (
+    <div>
+      <h3>Externul Users</h3>
+      {
+        users.map(users => <li>{users.name}</li>)
+      }
+    </div>
+  )
+}
+
+
+---
+
+
+
+end--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+				module: 45-9 Module Summary React Core Concepts Recap
+
+
+	1.jax		html in js
+
+	2.component	
+
+	3. props
+
+	4. event
+
+	5. state		useState()
+
+	6. useEffect		dinamic data load
+
+
+
+
+
+
+
+end--------------------------------------------------------- module -----------------------------------------------------------
+
+
+

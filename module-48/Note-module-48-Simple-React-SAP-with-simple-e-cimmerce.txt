@@ -1,0 +1,311 @@
+					MODULE = 48-Simple-React-SAP-with-simple-e-commerce
+
+
+
+
+
+	resource: https://ema-john.firebaseapp.com/
+
+
+
+
+			module : 48-1 Module Introduction, site overview, website logo
+
+
+
+
+	tips:
+
+		jodi page reload na hoy:
+
+			inspect   >>>   reload-click kore dhore thakte hobe   >>> Empty Chech and Heard Reload
+
+
+
+	logo import:
+
+		import logo from '../../images/logo.png';
+
+---
+
+import React from 'react';
+import logo from '../../images/logo.png';		###
+
+	###	[ jei file e img tag ase sei tar tulonay image koi ase sei image location ]
+
+const Header = () => {
+    return (
+        <div>
+            <h2>This is header</h2>
+            <img src={logo} alt="" />			###
+        </div>
+    );
+};
+
+export default Header;
+
+---
+
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-2 Header Component, logo position, set nav menu
+
+
+
+
+	css connection:
+
+		import './Header.css';
+
+
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-3 Shop Component Layout, load data and set state
+
+
+
+
+	seen and work
+
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-4 Product Component, component layout, display data
+
+
+
+
+
+const Shop = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('./products.JSON')
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    }, []);
+    return (
+        <div className="shop-container">
+            <div className="product-container">
+                <h3>Products: </h3>
+                {
+                    products.map(product => <Product product={product}></Product>)	##	[ 3 tar beshi data tai full information ]
+                }									##	[ send korar jonno ## product={product} ]
+            </div>
+            <div className="cart-container">
+                <h3>Order Summary</h3>
+                <h5>Items Ordered: </h5>
+            </div>
+        </div>
+    );
+};
+
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-5 Review Progress so far, add a button for event handler
+
+
+
+
+	seen and work
+
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-6 (advanced) set eventhandler, pass eventhandler to child
+
+
+
+
+	react data pass kore   top to bottom
+
+	nich theke data upore jay na.
+
+	data pathaite hole upore theke niche pathaite hoy.
+
+
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-7 (advanced) Cart state setup, update cart and total on click
+
+
+
+
+const Cart = (props) => {
+    const { cart } = props;
+    let total = 0;
+    for (const product of cart) {
+        total = total + product.price;
+    }
+    return (
+        <div>
+            <h3>Order Summary</h3>
+            <h5>Items Ordered: {props.cart.length}</h5>
+            <p>Total: {total}</p>
+        </div>
+    );
+};
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-8 Install external packages, react-fontawesome, display icon
+
+
+
+
+	react-fontawesome:
+
+		google   >>>>    react-fontawesome
+
+				https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react
+
+
+
+		Get Started
+				>>>   npm i --save @fortawesome/fontawesome-svg-core
+				>>>   npm install --save @fortawesome/free-solid-svg-icons
+				>>>   npm install --save @fortawesome/react-fontawesome
+													[ in command promt or terminal ] 
+
+		Using Icons via Individual Use
+
+				>>>   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+				>>>   import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+							import React from 'react';
+						##	import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+						##	import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+							import './Product.css';
+			
+										[ in vs code ]
+
+
+		vs-code:
+
+				>>>   const element = <FontAwesomeIcon icon={faCoffee} />
+
+const Product = (props) => {
+    // console.log(props)
+    const { name, img, price, seller, stock } = props.product;
+    const element = <FontAwesomeIcon icon={faCoffee} />						###
+    return (
+        <div className="product">
+            <div>
+                <img src={img} alt="" />
+            </div>
+            <div>
+                <h4 className="product-name">{name}</h4>
+                <p><small>by: {seller}</small></p>
+                <p>Price: {price}</p>
+                <p>only {stock} left in stock - order soon</p>
+                <button onClick={() => props.handleAddToCart(props.product)} className="btn-reguler">{element} add to cart</button> 	###
+            </div>
+        </div>
+    );
+};
+
+
+
+	or --------
+
+
+<button onClick={() => props.handleAddToCart(props.product)} className="btn-reguler"><FontAwesomeIcon icon={faShoppingCart} /> add to cart</button>
+
+
+	------or<<<
+
+
+
+
+---vs-code<<
+
+
+		package.json   >>>   u will see font awesome installed
+
+	
+
+	tips: 
+
+		ctrl + p     in va code		>>>   search box    >>>   type file name (rased.js)   >>> enter		[ file open hobe  ]
+
+
+
+
+.end-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 48-9 Simple React SPA module summary
+
+
+
+	google   >>>  think in react
+
+
+				https://reactjs.org/docs/thinking-in-react.html
+
+
+
+
+3:53s	sunnary
+
+
+
+

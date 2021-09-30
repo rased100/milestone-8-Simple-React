@@ -1,0 +1,459 @@
+					MODULE = 49-(advanced)-Save-and-searchable-e-commerce
+
+
+
+
+
+
+
+			module : 49-1 Module Introduction and simple ema-john recap
+
+
+
+
+
+	const shipping = total > 0 ? 15 : 0;
+	
+		total 0 theke boro hole shipping = 15  r  0 hole  shipping 0.
+
+
+
+
+
+
+
+7:16s	onClick:
+
+
+
+
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-2 Setting the cart on the localStorage for retrieve
+
+
+
+	ctrl + shift + f	search on folders	in vs code
+
+
+    const handleAddToCart = (product) => {
+        const newCart = [...cart, product];
+        setCart(newCart);
+
+        // save to local storage (for now)
+        addToDb(product.key)
+    }
+
+
+
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-3 (advanced) Load cart from local storage, find product
+
+
+
+
+
+    useEffect(() => {
+        const savedCart = getStoredCart();
+        for (const key in savedCart) {
+            const addedProduct = products.find(product => product.key === key);
+            console.log(key, addedProduct)
+        }
+    }, [])
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-4 (advanced) Display local storage cart to the UI
+
+
+
+
+
+    useEffect(() => {
+        const savedCart = getStoredCart();
+        for (const key in savedCart) {
+            const addedProduct = products.find(product => product.key === key);
+            console.log(key, addedProduct)
+        }
+    }, [ ])									[ empty thakle 1 bar call hobe ]
+
+
+
+
+
+
+
+    useEffect(() => {
+        const savedCart = getStoredCart();
+        for (const key in savedCart) {
+            const addedProduct = products.find(product => product.key === key);
+            console.log(key, addedProduct)
+        }
+    }, [products])									[ 	products er value jokhon change hobe 
+												then again ai function call hobe 	]
+
+
+
+-----
+
+
+    useEffect(() => {
+        if (products.length) {
+            const savedCart = getStoredCart();
+            const storedCart = [];
+            for (const key in savedCart) {
+                const addedProduct = products.find(product => product.key === key);
+                storedCart.push(addedProduct);
+            }
+            setCart(storedCart);
+        }
+    }, [products])
+
+
+							output:	reload korle cart er price 0 hoy na  ager ta show kore
+
+
+
+
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-5 (super advanced) Handle quantity from storage to cart
+
+
+
+
+const Cart = (props) => {
+    const { cart } = props;
+
+
+    // const totalReducer = (previous, product) => previous + product.price;
+    // const total = cart.reduce(totalReducer, 0);
+
+    // or
+    let totalQuantity = 0;
+    let total = 0;
+    for (const product of cart) {
+        // product.quantity = !product.quantity ? 1 : product.quantity;
+        // or
+        if (!product.quantity) {
+            product.quantity = 1;
+        }
+        total = total + product.price * product.quantity;
+        totalQuantity = totalQuantity + product.quantity;
+    }
+
+
+    const shipping = total > 0 ? 15 : 0;
+    const tax = (total + shipping) * (10 / 100);
+    const grandTotal = total + shipping + tax;
+
+
+    return (
+        <div>
+            <h3>Order Summary</h3>
+            <h5>Items Ordered: {totalQuantity}</h5>
+            <p>Total: {total.toFixed(2)}</p>
+            <p>Shipping: {shipping}</p>
+            <p>tax: {tax.toFixed(2)}</p>
+            <p>Grand Total: {grandTotal.toFixed(2)}</p>
+        </div>
+    );
+};
+
+
+
+
+
+
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-6 (advanced) implement search to find products
+
+
+shop.js
+2:00s		
+
+---
+    return (							[ return sudhu 1 ta div k korbe ]
+        <div className="shop-container">			###
+            <div className="product-container">
+                {
+                    products.map(product => <Product
+                        key={product.key}
+                        product={product}
+                        handleAddToCart={handleAddToCart}
+                    >
+                    </Product>)
+                }
+            </div>
+            <div className="cart-container">
+                <Cart cart={cart}></Cart>
+            </div>
+        </div>
+    );
+---
+
+    return (	
+
+	<div></div>						###	[ return error ]
+        <div className="shop-container">			###
+            <div className="product-container">
+                {
+                    products.map(product => <Product
+                        key={product.key}
+                        product={product}
+                        handleAddToCart={handleAddToCart}
+                    >
+                    </Product>)
+                }
+            </div>
+            <div className="cart-container">
+                <Cart cart={cart}></Cart>
+            </div>
+        </div>
+    );
+
+
+
+	solution:		1. array er vitor dhukay nite hobe     
+			or	2. div	,,		,,	,,
+			or	3. <>.......</>
+
+
+
+-------
+
+
+
+
+
+
+4:45s	onChange:
+
+		onChange={ }
+
+
+6:25s	filter by search:
+
+
+
+9:00s	dekhano:
+
+
+
+all
+
+---
+const Shop = () => {
+    const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
+    const [displayProducts, setDisplayProducts] = useState([]);			###
+
+    useEffect(() => {
+        fetch('./products.JSON')
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+                setDisplayProducts(data);					###
+            });
+    }, []);
+
+    useEffect(() => {
+        if (products.length) {
+            const savedCart = getStoredCart();
+            const storedCart = [];
+            for (const key in savedCart) {
+                const addedProduct = products.find(product => product.key === key);
+                if (addedProduct) {
+                    const quantity = savedCart[key];
+                    addedProduct.quantity = quantity;
+                    storedCart.push(addedProduct);
+                }
+
+            }
+            setCart(storedCart);
+        }
+    }, [products])
+
+    const handleAddToCart = (product) => {
+        const newCart = [...cart, product];
+        setCart(newCart);
+
+        // save to local storage (for now)
+        addToDb(product.key)
+    }
+
+    const handleSearch = event => {													###
+        const searchText = event.target.value;												###
+        const matchedProduct = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));		###
+        setDisplayProducts(matchedProduct);												###
+        console.log(matchedProduct.length)												###
+    }
+
+    return (
+        <div>
+            <div className="search-container">
+                <input
+                    onChange={handleSearch}
+                    type="text"
+                    placeholder="search product" />
+            </div>
+            <div className="shop-container">
+                <div className="product-container">
+                    {
+                        displayProducts.map(product => <Product						###
+                            key={product.key}
+                            product={product}
+                            handleAddToCart={handleAddToCart}
+                        >
+                        </Product>)
+                    }
+                </div>
+                <div className="cart-container">
+                    <Cart cart={cart}></Cart>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+---	
+
+
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-7 Display dynamic star ratings on products
+
+
+		google    >>>   react rating
+
+
+
+
+		>>>	npm install --save react-rating
+
+
+		>>>	import Rating from 'react-rating';
+
+
+
+		    <Rating
+                    initialRating={star}
+                    emptySymbol="far fa-star"
+                    fullSymbol="fas fa-star"
+                    readonly />
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-8 Module summary, deploy, code recap
+
+
+
+
+	deploy:
+	-------
+
+
+
+		npm run build
+
+
+
+5:58s	recap:
+
+
+
+end-------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+			module : 49-9 How to Master React
+
+
+
+
+
+	ow to Master React
+
+
+
+
+
+
+end------------------------------------------------------------- module ------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
